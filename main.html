@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="myjs.js" type="text/javascript"></script>
+        <script src="jquery.js" type="text/javascript"></script>
     </head>
 
     <body class="w3-content" style="max-width:1200px">
@@ -20,9 +21,13 @@
                 <h3 class="w3-wide"><b>MY LIFE</b></h3>
             </div>
 
+            <div id="profile w3-container w3-card-4">
+                <img id="pic" src="./images/profile.JPG" alt="Me in London" height="100%" width="100%"/>
+            </div>
+
             <div id="menu-container" class="w3-padding-64 w3-large w3-text-grey">
-                <a href="#" class="w3-bar-item w3-button">Timeline</a>
-                <a href="#" class="w3-bar-item w3-button">Education</a>
+                <a href="#" class="w3-bar-item w3-button" onclick="show_timeline()">Timeline</a>
+                <a href="#" class="w3-bar-item w3-button" onclick="show_education()">Education</a>
                 <a onclick="myAccFunc()" href="#" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
                     Experience
                     <i class="fa fa-caret-down"></i>
@@ -38,9 +43,8 @@
                 </div>
             </div>
 
-            <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a>
-            <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
+            <a href="#contact" class="w3-bar-item w3-button w3-padding" onclick="highlight_contact()">Contact</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding" onclick="show_donate()">Donate</a>
         </nav>
 
         <!-- Top menu on small screens -->
@@ -53,146 +57,13 @@
         <div class="w3-overlay w3-hide-large" onclick="w3_close()" title="close side menu" id="myOverlay"></div>
 
         <!-- !PAGE CONTENT! -->
-        <div class="w3-main" style="margin-left:250px">
-
-            <!-- Push down content on small screens -->
-            <div class="w3-hide-large" style="margin-top:83px"></div>
-
-            <!-- Top header -->
-
-            <!--SHOULD USE PHP TO MAKE DYNAMIC-->
-            <header class="w3-container w3-xlarge">
-                <p class="w3-left">My Timeline</p>
-                <!-- <p class="w3-right">
-                    <i class="fa fa-shopping-cart w3-margin-right"></i>
-                    <i class="fa fa-search"></i>
-                </p> -->
-            </header>
-
-            <!--Timeline Intro-->
-            <section class="intro">
-                <div class="container">
-                    <h1>The History of Me</h1>
-                </div>
-            </section>
-
-            <section class="timeline">
-                <ul>
-                    <li class="entry">
-                        <div>
-                            <time>1997</time>
-                            I was born
-                        </div>
-                    </li>
-                    <li class="entry">
-                        <div>
-                            <time>2015</time>
-                            Graduated from High School
-                        </div>
-                    </li>
-                    <li class="entry">
-                        <div>
-                            <time>2015</time>
-                            Started College at the U of A
-                        </div>
-                    </li>
-                    <li class="entry">
-                        <div>
-                            <time>2020</time>
-                            Graduated from U of A
-                        </div>
-                    </li>
-                </ul>
-            </section>
-
-            <!-- Image header -->
-            <!-- <div class="w3-display-container w3-container">
-                <img src="/w3images/jeans.jpg" alt="Jeans" style="width:100%"/>
-                <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
-                    <h1 class="w3-jumbo w3-hide-small">New arrivals</h1>
-                    <h1 class="w3-hide-large w3-hide-medium">New arrivals</h1>
-                    <h1 class="w3-hide-small">COLLECTION 2016</h1>
-                    <p><a href="#jeans" class="w3-button w3-black w3-padding-large w3-large">SHOP NOW</a></p>
-                </div>
-            </div>
-
-            <div class="w3-container w3-text-grey" id="jeans">
-                <p>8 items</p>
-            </div>
-            -->
-
-            <!-- Product grid -->
-            <!--<div class="w3-row w3-grayscale">
-                <div class="w3-col l3 s6">
-                    <div class="w3-container">
-                        <img src="/w3images/jeans1.jpg" style="width:100%">
-                        <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
-                    </div>
-                    <div class="w3-container">
-                        <img src="/w3images/jeans2.jpg" style="width:100%">
-                        <p>Mega Ripped Jeans<br><b>$19.99</b></p>
-                    </div>
-                </div>
-
-                <div class="w3-col l3 s6">
-                    <div class="w3-container">
-                        <div class="w3-display-container">
-                            <img src="/w3images/jeans2.jpg" style="width:100%">
-                            <span class="w3-tag w3-display-topleft">New</span>
-                            <div class="w3-display-middle w3-display-hover">
-                                <button class="w3-button">Buy now <i class="fa fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <p>Mega Ripped Jeans<br><b>$19.99</b></p>
-                    </div>
-                    <div class="w3-container">
-                        <img src="/w3images/jeans3.jpg" style="width:100%">
-                        <p>Washed Skinny Jeans<br><b>$20.50</b></p>
-                    </div>
-                </div>
-
-                <div class="w3-col l3 s6">
-                    <div class="w3-container">
-                        <img src="/w3images/jeans3.jpg" style="width:100%">
-                        <p>Washed Skinny Jeans<br><b>$20.50</b></p>
-                    </div>
-                    <div class="w3-container">
-                        <div class="w3-display-container">
-                            <img src="/w3images/jeans4.jpg" style="width:100%">
-                                <span class="w3-tag w3-display-topleft">Sale</span>
-                                <div class="w3-display-middle w3-display-hover">
-                                    <button class="w3-button">Buy now <i class="fa fa-shopping-cart"></i></button>
-                                </div>
-                            </div>
-                            <p>Vintage Skinny Jeans<br><b class="w3-text-red">$14.99</b></p>
-                        </div>
-                    </div>
-
-                    <div class="w3-col l3 s6">
-                        <div class="w3-container">
-                            <img src="/w3images/jeans4.jpg" style="width:100%">
-                            <p>Vintage Skinny Jeans<br><b>$14.99</b></p>
-                        </div>
-                        <div class="w3-container">
-                            <img src="/w3images/jeans1.jpg" style="width:100%">
-                            <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
-                        </div>
-                    </div>
-                </div> -->
-            <!--END PHP-->
-
-            <!-- Subscribe section -->
-            <div class="w3-container w3-black w3-padding-32">
-                <h1>Subscribe</h1>
-                <p>To get special offers and VIP treatment:</p>
-                <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail" style="width:100%"></p>
-                <button type="button" class="w3-button w3-red w3-margin-bottom">Subscribe</button>
-            </div>
+        <div class="w3-main" style="margin-left:250px" >
+            <div id="main-content" class="w3-main"></div>
 
             <!-- Footer -->
             <footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
                 <div class="w3-row-padding">
-                    <div class="w3-col s4">
+                    <div class="w3-col s4" id="contact">
                         <h4>Contact</h4>
                         <p>Questions? Go ahead.</p>
                         <form action="/action_page.php" target="_blank">
@@ -206,30 +77,23 @@
 
                     <div class="w3-col s4">
                         <h4>About</h4>
-                        <p><a href="#">About us</a></p>
-                        <p><a href="#">We're hiring</a></p>
-                        <p><a href="#">Support</a></p>
-                        <p><a href="#">Find store</a></p>
-                        <p><a href="#">Shipment</a></p>
-                        <p><a href="#">Payment</a></p>
-                        <p><a href="#">Gift card</a></p>
-                        <p><a href="#">Return</a></p>
-                        <p><a href="#">Help</a></p>
+                        <p><a href="#main-content" onclick="show_timeline()">Timeline</a></p>
+                        <p><a href="#main-content" onclick="show_education()">Education</a></p>
+                        <p><a href="#">Experience</a></p>
+                        <p><a href="#contact" onclick="highlight_contact()">Contact Me</a></p>
+                        <p><a href="#donate" onclick="show_donate()">Donate</a></p>
+                        <p><a href="#">How to navigate my website</a></p>
                     </div>
 
                     <div class="w3-col s4 w3-justify">
-                        <h4>Store</h4>
-                        <p><i class="fa fa-fw fa-map-marker"></i> Company Name</p>
-                        <p><i class="fa fa-fw fa-phone"></i> 0044123123</p>
-                        <p><i class="fa fa-fw fa-envelope"></i> ex@mail.com</p>
-                        <h4>We accept</h4>
-                        <p><i class="fa fa-fw fa-cc-amex"></i> Amex</p>
-                        <p><i class="fa fa-fw fa-credit-card"></i> Credit Card</p>
+                        <h4>Company</h4>
+                        <p><i class="fa fa-fw fa-map-marker"></i> Badger Web Development</p>
+                        <p><i class="fa fa-fw fa-phone"></i> (928) 368-7544</p>
+                        <p><i class="fa fa-fw fa-envelope"></i> smalbadger@email.arizona.edu</p>
                         <br>
                         <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i>
                         <i class="fa fa-instagram w3-hover-opacity w3-large"></i>
                         <i class="fa fa-snapchat w3-hover-opacity w3-large"></i>
-                        <i class="fa fa-pinterest-p w3-hover-opacity w3-large"></i>
                         <i class="fa fa-twitter w3-hover-opacity w3-large"></i>
                         <i class="fa fa-linkedin w3-hover-opacity w3-large"></i>
                     </div>
@@ -241,14 +105,18 @@
             <!-- End page content -->
             </div>
 
-        <!-- Newsletter Modal -->
+        <!-- Donation Modal -->
         <div id="newsletter" class="w3-modal">
             <div class="w3-modal-content w3-animate-zoom" style="padding:32px">
                 <div class="w3-container w3-white w3-center">
                     <i onclick="document.getElementById('newsletter').style.display='none'" class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"></i>
-                    <h2 class="w3-wide">NEWSLETTER</h2>
-                    <p>Join our mailing list to receive updates on new arrivals and special offers.</p>
+                    <h2 class="w3-wide">Donate To My College Fund</h2>
+                    <p>When you Donate to my college fund, you'll get a hand-written thank you and a prayer from me (I give really good prayers)</p>
+                    <p><input class="w3-input w3-border" type="text" placeholder="Enter your name"></p>
                     <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail"></p>
+                    <p><input class="w3-input w3-border" type="text" placeholder="Enter your credit card number"></p>
+                    <p><input class="w3-input w3-border" type="text" placeholder="Enter it's security code"></p>
+                    <p><input class="w3-input w3-border" type="text" placeholder="Enter it's expiration date"></p>
                     <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('newsletter').style.display='none'">Subscribe</button>
                 </div>
             </div>

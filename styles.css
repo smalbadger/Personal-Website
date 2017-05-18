@@ -23,7 +23,6 @@ body {
   background: #efefef;
   color: #a9a9a9;
   overflow-x: hidden;
-  padding-bottom: 50px;
 }
 
  /* INTRO SECTION
@@ -183,4 +182,20 @@ time {
     border-width: 8px 16px 8px 0;
     border-color: transparent #F45B69 transparent transparent;
   }
+}
+
+.lefty{
+	float: left;
+	width:40%;
+}
+
+.righty{
+	float: right;
+	width: 60%;
+}
+
+.article{
+	display: block;
+	clear: left;
+	margin-top: 4em;
 }
