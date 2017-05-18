@@ -31,6 +31,10 @@ function show_education(){
     $("#main-content").load("education.html");
 }
 
+function show_donate(){
+    document.getElementById('newsletter').style.display='block'
+}
+
 function highlight_contact(){
     var contact = document.getElementById("contact");
     contact.style.border="10px solid #F45B69";
